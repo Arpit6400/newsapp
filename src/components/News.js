@@ -18,19 +18,6 @@ export class News extends Component {
     },
     {
         "source": {
-            "id": "google-news-au",
-            "name": "Google News (Australia)"
-        },
-        "author": "cricket.com.au",
-        "title": "Morris, Bartlett to debut as Aussies bowl first at MCG | cricket.com.au - cricket.com.au",
-        "description": null,
-        "url": "https://news.google.com/rss/articles/CBMilAFodHRwczovL3d3dy5jcmlja2V0LmNvbS5hdS9uZXdzLzM4NzY4OTkvbGFuY2UtbW9ycmlzLXhhdmllci1iYXJ0bGV0dC10by1tYWtlLW9kaS1kZWJ1dC1hcy1hdXNzaWVzLWJvd2wtZmlyc3QtYWdhaW5zdC13aW5kaWVzLWZpcnN0LW9kaS1tZWxib3VybmUtbWNn0gEA?oc=5",
-        "urlToImage": null,
-        "publishedAt": "2024-02-02T03:15:00+00:00",
-        "content": null
-    },
-    {
-        "source": {
             "id": "espn-cric-info",
             "name": "ESPN Cric Info"
         },
@@ -70,15 +57,13 @@ export class News extends Component {
       <div className="container my-3" >
         <h2>Top Headlines</h2>
         <div className="row">
-            <div className="col md-3">
-          <NewsItem title="Mytilte" description="hhjhjb" imageUrl="https://a4.espncdn.com/combiner/i?img=%2Fi%2Fcricket%2Fcricinfo%2F1219926_1296x729.jpg" newsUrl="TODO" />
+        {this.state.articles.map((element)=>{
+
+          return   <div className="col md-4" key={element.url} >
+          <NewsItem title={element.title.slice(0,45)} description={element.description.slice(0,88)} imageUrl={element.urlToImage} newsUrl={element.url} />
             </div>
-            <div className="col md-3">
-          <NewsItem title="Mytilte" description="hhjhjb"/>
-            </div>
-            <div className="col md-3">
-          <NewsItem title="Mytilte" description="hhjhjb"/>
-            </div>
+        })}
+            
         </div>
          
       </div>
